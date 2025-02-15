@@ -29,17 +29,17 @@
             font-size: 1.2em;
             animation: fadeIn 3s;
         }
-        button {
+        .big-button {
             background: #ff4e50;
             border: none;
-            padding: 10px 20px;
-            font-size: 1em;
+            padding: 15px 30px;
+            font-size: 1.2em;
             color: white;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 10px;
             transition: 0.3s;
         }
-        button:hover {
+        .big-button:hover {
             background: #fc913a;
         }
         @keyframes fadeIn {
@@ -50,14 +50,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>Chào mừng đến với trang web của tôi!</h1>
-        <p>Đây là một trang web đơn giản nhưng có giao diện hiện đại.</p>
-        <button onclick="showAlert()">Nhấn vào tôi!</button>
+        <h1>Chào các bạn, cám ơn đã ghé thăm trang github của tôi</h1>
+        <p>Đây là nơi lưu trữ tất cả những công sức nghiên cứu của tôi về mọi thứ, VD lỗ hổng trang web, ứng dụng, game,... tất nhiên nó không miễn phí bởi vì nó chứa công sức của tôi cũng như những lỗ hổng này khá thú vị XD.
+        
+        Dễ lắm, chỉ cần vượt link rút gọn là bạn có thể truy cập 1 phần và sử dụng tính năng của lỗ hổng đó =), thông cảm cho tôi vì nhà tôi nghèo và không có tiền
+        
+        vậy nên, tôi phải kiếm tiền nhằm phụ giúp cha mẹ ;)</p>
+        <button class="big-button" onclick="location.href='https://TheLazyGap2412.github.io/ProjectGap'">Dự Án Về Các Lỗ Hổng</button>
     </div>
-    <script>
-        function showAlert() {
-            alert("Cảm ơn bạn đã ghé thăm!");
-        }
-    </script>
 </body>
 </html>
