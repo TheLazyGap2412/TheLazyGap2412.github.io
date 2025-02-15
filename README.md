@@ -1,2 +1,5 @@
 # PJavGap.github.
-SHHH, chỉ có tôi biết về lỗ hổng này, nếu bạn cố ý ăn cắp hoặc tìm hiểu về nó, tôi sẽ không chịu trách nhiệm về mọi việc bạn làm nhé
+Đây là nơi lưu trữ tất cả những công sức nghiên cứu của tôi về mọi thứ, VD lỗ hổng trang web, ứng dụng, game,... tất nhiên nó không miễn phí
+Dễ lắm, chỉ cần vượt link rút gọn là bạn có thể truy cập 1 phần và sử dụng tính năng của lỗ hổng đó =), thông cảm cho tôi vì nhà tôi nghèo và không có tiền
+vậy nên, tôi phải kiếm tiền nhằm phụ giúp cha mẹ ;)
+                                                                                                                           
