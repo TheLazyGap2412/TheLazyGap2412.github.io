@@ -78,6 +78,29 @@
         </p>
         <button class="button" onclick="location.href='https://thelazygap2412.github.io/ProjectGap/'">Quay Lại</button>
         <button class="button" onclick="location.href='HDSD.html'">Hướng Dẫn Sử Dụng</button>
+        <button class="button" onclick="getShortenedLink()">Lấy link rút gọn</button>
     </div>
+
+    <script>
+        function getShortenedLink() {
+            let longUrl = encodeURIComponent(window.location.href);
+            let apiUrl = `https://link4m.co/api-shorten/v2?api=67b0a1671a16375e984df552&url=${longUrl}`;
+            
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "thành công") {
+                        navigator.clipboard.writeText(data.shortenedUrl).then(() => {
+                            alert("Link rút gọn đã được sao chép! Dán vào trình duyệt để tiếp tục.");
+                        });
+                    } else {
+                        alert("Lỗi khi tạo link rút gọn: " + data.message);
+                    }
+                })
+                .catch(error => {
+                    alert("Lỗi kết nối API: " + error);
+                });
+        }
+    </script>
 </body>
 </html>
