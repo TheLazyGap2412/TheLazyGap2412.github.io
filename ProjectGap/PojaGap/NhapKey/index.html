@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhập Key</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+        }
+        button {
+            background: #ff4e50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #fc913a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Nhập Key</h2>
+        <input type="text" id="keyInput" placeholder="Nhập key tại đây">
+        <button onclick="submitKey()">Xác nhận</button>
+    </div>
+
+    <script>
+        function submitKey() {
+            let key = document.getElementById("keyInput").value;
+            if (key.trim() === "") {
+                alert("Vui lòng nhập key!");
+                return;
+            }
+            alert("Key bạn nhập là: " + key);
+            // Sau này có thể xử lý key ở đây
+        }
+    </script>
+</body>
+</html>
