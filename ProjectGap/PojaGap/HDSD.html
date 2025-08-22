@@ -3,78 +3,361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hướng Dẫn Sử Dụng</title>
+    <title>Hướng Dẫn Sử Dụng Minecraft Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
-            background: #f4f4f4;
-            color: #333;
+            padding: 0;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            color: #4f46e5;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #e5e7eb;
+            position: relative;
+        }
+        
+        h2::before {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+        
+        p {
+            margin-bottom: 16px;
+            font-size: 1rem;
+            color: #374151;
+        }
+        
+        .intro-highlight {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 20px 0;
         }
-        h1, h2 {
-            color: #007bff;
+        
+        .intro-highlight p {
+            margin-bottom: 10px;
+            font-weight: 500;
         }
-        ul {
-            padding-left: 20px;
+        
+        .intro-highlight p:last-child {
+            margin-bottom: 0;
         }
-        .important {
-            color: red;
-            font-weight: bold;
+        
+        .steps-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        
+        .steps-list li {
+            counter-increment: step-counter;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-left: 4px solid #4f46e5;
+            position: relative;
+        }
+        
+        .steps-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -15px;
+            top: 20px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .steps-list strong {
+            color: #4f46e5;
+            font-weight: 600;
+        }
+        
+        code {
+            background: #1f2937;
+            color: #10b981;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.875rem;
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border: 1px solid #fca5a5;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .warning::before {
+            content: '⚠️';
+            font-size: 1.5rem;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        
+        .warning p {
+            margin-left: 40px;
+            color: #dc2626;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+        
+        .error-signs {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .error-signs ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .error-signs li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .error-signs li:last-child {
+            border-bottom: none;
+        }
+        
+        .error-signs li::before {
+            content: '🔍';
+            position: absolute;
+            left: 0;
+            top: 12px;
+        }
+        
+        .error-signs strong {
+            color: #dc2626;
+            font-weight: 600;
+        }
+        
+        .fix-steps {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .fix-steps ul {
+            list-style: none;
+            counter-reset: fix-counter;
+        }
+        
+        .fix-steps li {
+            counter-increment: fix-counter;
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .fix-steps li::before {
+            content: counter(fix-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #10b981;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+        
+        .important-note {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .important-note p {
+            color: #1e40af;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .steps-list li {
+                padding: 15px;
+                margin-left: 15px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Hướng Dẫn Sử Dụng</h1>
+        <div class="header">
+            <h1>🎮 Hướng Dẫn Minecraft Premium</h1>
+            <p>Chơi Minecraft như tài khoản Premium hoàn toàn miễn phí</p>
+        </div>
         
-        <h2>1. Giới thiệu</h2>
-        <p>Đây là một lỗ hổng giúp bạn có thể chơi Minecraft giống như tài khoản Premium mà không bị "Demo". Bạn có thể cài mod, đăng nhập bằng tài khoản Microsoft cá nhân mà không cần lấy tài khoản Premium từ web.</p>
-        <p><strong>Lỗ hổng này hoạt động trên mọi phiên bản PojavLauncher vĩnh viễn.</strong></p>
+        <div class="content">
+            <div class="section">
+                <h2>1. Giới thiệu</h2>
+                <div class="intro-highlight">
+                    <p>Đây là một lỗ hổng giúp bạn có thể chơi Minecraft giống như tài khoản Premium mà không bị "Demo". Bạn có thể cài mod, đăng nhập bằng tài khoản Microsoft cá nhân mà không cần lấy tài khoản Premium từ web.</p>
+                    <p><strong>Lỗ hổng này hoạt động trên mọi phiên bản PojavLauncher vĩnh viễn.</strong></p>
+                </div>
+            </div>
 
-        <h2>2. Cách sử dụng</h2>
-        <ul>
-            <li><strong>Bước 1:</strong> Đăng nhập tài khoản Microsoft của bạn vào PojavLauncher.</li>
-            <li><strong>Bước 2:</strong> Vượt link rút gọn để nhận lượt crack.</li>
-            <li><strong>Bước 3:</strong> Gửi file tài khoản của bạn lên web để tiến hành crack. ( lấy ở thư mục "Accounts" trong thư mục Pojav, file có đầu là Demo.têntàikhoản.account.json</li>
-			<li><strong>VD : Demo.HeroBride8386.account.json
-            <li><strong>Bước 4:</strong> Sau khi Crack xong, Bạn tiến hành Tải file tài khoản đã được crack về.</li>
-            <li><strong>Bước 5:</strong> Xóa file tài khoản cũ trong thư mục <code>Accounts</code> , có đầu là Demo."tênTK".account.json</li>
-            <li><strong>Bước 6:</strong> Dán file tài khoản đã crack vào thư mục <code>Accounts</code>.</li>
-            <li><strong>Bước 7:</strong> Chọn tài khoản đã crack trong pojavlaucher và chơi game như bình thường!</li>
-        </ul>
-        <p class="important">Lưu ý: Phương pháp này an toàn tuyệt đối, không làm lộ tài khoản của bạn.</p>
+            <div class="section">
+                <h2>2. Cách sử dụng</h2>
+                <ol class="steps-list">
+                    <li><strong>Bước 1:</strong> Đăng nhập tài khoản Microsoft của bạn vào PojavLauncher.</li>
+                    <li><strong>Bước 2:</strong> Vượt link rút gọn để nhận lượt crack.</li>
+                    <li><strong>Bước 3:</strong> Gửi file tài khoản của bạn lên web để tiến hành crack. (lấy ở thư mục "Accounts" trong thư mục Pojav, file có đầu là <code>Demo.têntàikhoản.account.json</code>)<br>
+                    <strong>VD:</strong> <code>Demo.HeroBride8386.account.json</code></li>
+                    <li><strong>Bước 4:</strong> Sau khi Crack xong, bạn tiến hành tải file tài khoản đã được crack về.</li>
+                    <li><strong>Bước 5:</strong> Xóa file tài khoản cũ trong thư mục <code>Accounts</code>, có đầu là <code>Demo."tênTK".account.json</code></li>
+                    <li><strong>Bước 6:</strong> Dán file tài khoản đã crack vào thư mục <code>Accounts</code>.</li>
+                    <li><strong>Bước 7:</strong> Chọn tài khoản đã crack trong PojavLauncher và chơi game như bình thường!</li>
+                </ol>
+                
+                <div class="warning">
+                    <p>Lưu ý: Phương pháp này an toàn tuyệt đối, không làm lộ tài khoản của bạn.</p>
+                </div>
+            </div>
 
-        <h2>3. Lỗi và cách khắc phục</h2>
-        <p>Sau 5-7 ngày, tài khoản của bạn có thể bị lỗi. Dưới đây là dấu hiệu nhận biết:</p>
-        <ul>
-            <li><strong>Dấu hiệu 1:</strong> Không vào được phiên bản Minecraft hoặc bị tải lại phiên bản minecraft từ đầu.</li>
-            <li><strong>Dấu hiệu 2:</strong> Khi chọn tài khoản Microsoft trong PojavLauncher, biểu tượng tải cứ xoay vòng và xuất hiện hai tài khoản trùng tên (ví dụ: <code>HeroBride2332</code> và <code>Demo.HeroBride2332</code>).</li>
-            <li><strong>Dấu hiệu 3:</strong> Vào game bị văng do hết hạn chứng chỉ hoặc token.</li>
-			<li><strong>Check dấu hiệu 3 bằng cách : nếu bạn bị văng, tiến hành xóa file tài khoản trong thư mục <code>Accounts</code> đi, nếu bạn vào lại game mà không bị văng nữa thì là do hết hạn token, hãy đăng nhập lại tài khoản và crack lại, còn nếu mà xóa file tài khoản và vào lại game rồi mà bạn vẫn bị văng, thì là do pojav launcher đã hết hạn chứng chỉ, lỗi này không phải do tool crack của mình mà là do Apple đã vô hiệu hóa chứng chỉ làm bạn không vào được game, hãy tải lại game với chứng chỉ mới và tình trạng văng sẽ biến mất !</li>
-        </ul>
+            <div class="section">
+                <h2>3. Lỗi và cách khắc phục</h2>
+                <p>Sau 5-7 ngày, tài khoản của bạn có thể bị lỗi. Dưới đây là dấu hiệu nhận biết:</p>
+                
+                <div class="error-signs">
+                    <ul>
+                        <li><strong>Dấu hiệu 1:</strong> Không vào được phiên bản Minecraft hoặc bị tải lại phiên bản minecraft từ đầu.</li>
+                        <li><strong>Dấu hiệu 2:</strong> Khi chọn tài khoản Microsoft trong PojavLauncher, biểu tượng tải cứ xoay vòng và xuất hiện hai tài khoản trùng tên hoặc chỉ có 1 tài khoản, (ví dụ: <code>HeroBride2332</code> và <code>Demo.HeroBridge2332</code>).</li>
+                        <li><strong>Dấu hiệu 3:</strong> Vào game bị văng do hết hạn chứng chỉ hoặc token.<br>
+                        <em>Check dấu hiệu 3 bằng cách: nếu bạn bị văng, tiến hành xóa file tài khoản trong thư mục <code>Accounts</code> đi, nếu bạn vào lại game mà không bị văng nữa thì là do hết hạn token, hãy đăng nhập lại tài khoản và crack lại, còn nếu mà xóa file tài khoản và vào lại game rồi mà bạn vẫn bị văng, thì là do pojav launcher đã hết hạn chứng chỉ, lỗi này không phải do tool crack của mình mà là do Apple đã vô hiệu hóa chứng chỉ làm bạn không vào được game, hãy tải lại game với chứng chỉ mới và tình trạng văng sẽ biến mất!</em></li>
+                    </ul>
+                </div>
+            </div>
 
-        <h2>4. Cách sửa lỗi</h2>
-        <ul>
-            <li><strong>Bước 1:</strong> Mở ứng dụng "Tệp" trên điện thoại.</li>
-            <li><strong>Bước 2:</strong> Vào thư mục ứng dụng PojavLauncher.</li>
-            <li><strong>Bước 3:</strong> Mở thư mục <code>Accounts</code>.</li>
-            <li><strong>Bước 4:</strong> Xóa file có tên tài khoản Xbox-Microsoft của bạn (VD: <code>HeroBride2421.account.json</code> hoặc <code>Demo.HeroBride2421.account.json</code>), nói chung là xóa hết file có đầu là tên tài khoản của bạn nhé, kể cả có chữ <code>Demo</code> ở đầu hay không.</li>
-            <li><strong>Bước 5:</strong> Đăng nhập lại tài khoản Microsoft của bạn để tạo file mới.</li>
-            <li><strong>Bước 6:</strong> Vào lại trang web Crack của mình, gửi file mới lên để crack lại.</li>
-            <li><strong>Bước 7:</strong> Dán file đã crack vào thư mục <code>Accounts</code> và tiếp tục chơi game!</li>
-	    <li><strong>Lưu ý quan trọng:</strong> Nếu bạn đăng nhập tài khoản microsoft vào lần đầu mà bị văng game luôn là do tài khoản xbox của bạn chưa được tạo, hãy tạo tài khoản xbox rồi chờ từ 2-3 tiếng để cập nhật dữ liệu và đăng nhập lại nhé !</li>	
-        </ul>
-        
-        <p class="important">Lưu ý: Không xóa file của tài khoản nội bộ nếu bạn muốn chơi offline.</p>
+            <div class="section">
+                <h2>4. Cách sửa lỗi</h2>
+                <div class="fix-steps">
+                    <ul>
+                        <li><strong>Bước 1:</strong> Mở ứng dụng "Tệp" trên điện thoại.</li>
+                        <li><strong>Bước 2:</strong> Vào thư mục ứng dụng PojavLauncher.</li>
+                        <li><strong>Bước 3:</strong> Mở thư mục <code>Accounts</code>.</li>
+                        <li><strong>Bước 4:</strong> Xóa file có tên tài khoản Xbox-Microsoft của bạn (VD: <code>HeroBride2421.account.json</code> hoặc <code>Demo.HeroBride2421.account.json</code>), nói chung là xóa hết file có đầu là tên tài khoản của bạn nhé, kể cả có chữ <code>Demo</code> ở đầu hay không.</li>
+                        <li><strong>Bước 5:</strong> Đăng nhập lại tài khoản Microsoft của bạn để tạo file mới.</li>
+                        <li><strong>Bước 6:</strong> Vào lại trang web Crack của mình, gửi file mới lên để crack lại.</li>
+                        <li><strong>Bước 7:</strong> Dán file đã crack vào thư mục <code>Accounts</code> và tiếp tục chơi game!</li>
+                    </ul>
+                </div>
+                
+                <div class="important-note">
+                    <p><strong>Lưu ý quan trọng:</strong> Nếu bạn đăng nhập tài khoản Microsoft vào lần đầu mà bị văng game luôn là do tài khoản Xbox của bạn chưa được tạo, hãy tạo tài khoản Xbox rồi chờ từ 2-3 tiếng để cập nhật dữ liệu và đăng nhập lại nhé!</p>
+                </div>
+                
+                <div class="warning">
+                    <p>Lưu ý: Không xóa file của tài khoản nội bộ nếu bạn muốn chơi offline.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
