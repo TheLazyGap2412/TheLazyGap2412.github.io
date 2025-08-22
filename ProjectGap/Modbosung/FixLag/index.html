@@ -3,82 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mod Fix Lag</title>
+    <title>Minecraft Mod Fix Lag</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #ff7e5f, #feb47b);
-            text-align: center;
-            color: white;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2d5a27 0%, #4a7c59 50%, #6b8e23 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            overflow-x: hidden;
         }
+        
+        /* Minecraft-style background pattern */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.1) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(34, 139, 34, 0.1) 2px, transparent 2px);
+            background-size: 40px 40px;
+            z-index: -1;
+        }
+        
         .container {
-            width: 100%;
-            max-width: 400px;
-            margin: 30px auto;
-            background: rgba(255, 255, 255, 0.18);
-            padding: 24px 12px 28px 12px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.18);
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
+            width: 90%;
+            max-width: 420px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 3px solid #8B4513;
+            border-radius: 8px;
+            padding: 32px 24px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
         }
+        
+        /* Minecraft-style border decoration */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #8B4513, #A0522D, #8B4513);
+            border-radius: 8px;
+            z-index: -1;
+        }
+        
+        .title {
+            color: #FFD700;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            color: #90EE90;
+            font-size: 0.95em;
+            text-align: center;
+            margin-bottom: 28px;
+            line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+        }
+        
         .button-group {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 16px;
         }
+        
         .button {
-            background: #ff4e50;
-            border: none;
-            padding: 10px 0;
+            background: linear-gradient(145deg, #228B22, #32CD32);
+            border: 2px solid #006400;
+            padding: 14px 20px;
             font-size: 1em;
+            font-weight: 600;
             color: white;
             cursor: pointer;
-            border-radius: 8px;
-            transition: background 0.3s, transform 0.2s;
-            width: 100%;
-            min-width: 0;
-            max-width: 100%;
-            box-sizing: border-box;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
         }
+        
         .button:hover {
-            background: #fc913a;
-            transform: translateY(-2px) scale(1.03);
+            background: linear-gradient(145deg, #32CD32, #228B22);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(50, 205, 50, 0.3);
         }
-        @media (min-width: 480px) {
+        
+        .button:active {
+            transform: translateY(0);
+        }
+        
+        .button.secondary {
+            background: linear-gradient(145deg, #8B4513, #A0522D);
+            border-color: #654321;
+        }
+        
+        .button.secondary:hover {
+            background: linear-gradient(145deg, #A0522D, #8B4513);
+            box-shadow: 0 6px 20px rgba(160, 82, 45, 0.3);
+        }
+        
+        /* Minecraft block effect */
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .button:hover::before {
+            left: 100%;
+        }
+        
+        @media (max-width: 480px) {
             .container {
-                max-width: 340px;
-                padding: 32px 24px 36px 24px;
+                width: 95%;
+                padding: 24px 20px;
             }
+            
+            .title {
+                font-size: 1.3em;
+            }
+            
+            .subtitle {
+                font-size: 0.9em;
+            }
+            
             .button {
-                font-size: 1.08em;
-            }
-            .button-group {
-                gap: 16px;
-            }
-        }
-        @media (min-width: 700px) {
-            .container {
-                max-width: 320px;
+                padding: 12px 16px;
+                font-size: 0.95em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div style="font-size:1.08em;font-weight:500;margin-bottom:10px;line-height:1.5;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.10);">
-            Dưới đây là những mod fix lag, tối ưu mình sưu tầm được và đã test kỹ nhé
-        </div>
+        <h1 class="title">🎮 MINECRAFT MOD FIX LAG</h1>
+        <p class="subtitle">
+            Mod tối ưu hiệu suất đã được test kỹ lưỡng<br>
+            Giúp game chạy mượt mà hơn!
+        </p>
         <div class="button-group">
-            <button class="button" onclick="window.location.href='https://thelazygap2412.github.io/ProjectGap/Modbosung/index.html'">Quay Lại</button>
-            <button class="button" onclick="window.location.href='https://yeumoney.com/RZDscAvQ'">Mod Fix Lag 1.20.1 Forge vjp</button>
+            <button class="button" onclick="window.location.href='https://yeumoney.com/RZDscAvQ'">
+                ⚡ Tải Mod Fix Lag 1.20.1 Forge
+            </button>
+            <button class="button secondary" onclick="window.location.href='https://thelazygap2412.github.io/ProjectGap/Modbosung/index.html'">
+                🏠 Quay Lại Trang Chủ
+            </button>
         </div>
     </div>
 </body>
